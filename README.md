@@ -25,13 +25,13 @@ Approved business customers need to submit a purchase order reference at checkou
 
 ## Try it
 
-Enable **Purchase Order** under WooCommerce payment settings. For a test customer, set the user meta key `_codexawp_po_approved` to `yes` using your test site's management tools. The reference accepts 3–40 letters, digits, hyphens or slashes. Test both the Classic Checkout shortcode and the Checkout block.
+Enable **Purchase Order** under WooCommerce payment settings. Open a test customer's profile under **Users** and allow Purchase Order payment. Administrators who manage WooCommerce and can edit that customer can grant or revoke approval. The reference accepts 3–40 letters, digits, hyphens or slashes.
 
 ## Verification
 
 Activate this plugin on a disposable WordPress site with WooCommerce active and `WP_ENVIRONMENT_TYPE` set to `local`. Set `CODEXAWP_TEST_WP_LOAD` to the absolute path to that site's `wp-load.php`, then run `php tests/check.php` from this repository.
 
-The PHP fixture checks qualification, reference format, review status and the saved reference. Test orders were submitted in both checkout interfaces.
+The PHP fixture checks qualification, reference format, review status and the saved reference. The shared browser fixture runs both checkout interfaces for guest, unapproved and approved accounts, then checks the persisted on-hold order and purchase order reference.
 
 ## License
 
