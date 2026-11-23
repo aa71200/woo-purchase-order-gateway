@@ -7,13 +7,13 @@ defined( 'ABSPATH' ) || exit;
 final class Gateway extends \WC_Payment_Gateway {
 	public function __construct() {
 		$this->id = ID;
-		$this->method_title = 'Purchase Order';
-		$this->method_description = 'An offline method for approved business accounts.';
+		$this->method_title = __( 'Purchase Order', 'woo-purchase-order-gateway' );
+		$this->method_description = __( 'An offline method for approved business accounts.', 'woo-purchase-order-gateway' );
 		$this->has_fields = true;
 		$this->supports = [ 'products' ];
 		$this->form_fields = [
-			'enabled' => [ 'title' => 'Enable', 'type' => 'checkbox', 'label' => 'Enable purchase orders', 'default' => 'no' ],
-			'title'   => [ 'title' => 'Checkout label', 'type' => 'text', 'default' => 'Purchase Order' ],
+			'enabled' => [ 'title' => __( 'Enable', 'woo-purchase-order-gateway' ), 'type' => 'checkbox', 'label' => __( 'Enable purchase orders', 'woo-purchase-order-gateway' ), 'default' => 'no' ],
+			'title'   => [ 'title' => __( 'Checkout label', 'woo-purchase-order-gateway' ), 'type' => 'text', 'default' => $this->method_title ],
 		];
 		$this->init_settings();
 		$this->enabled = $this->get_option( 'enabled' );
@@ -26,11 +26,11 @@ final class Gateway extends \WC_Payment_Gateway {
 	}
 
 	public function payment_fields(): void {
-		echo '<div class="codexawp-po-card"><p class="po-context">Business billing · Merchant review</p>';
+		echo '<div class="codexawp-po-card"><p class="po-context">' . esc_html__( 'Business billing · Merchant review', 'woo-purchase-order-gateway' ) . '</p>';
 		woocommerce_form_field( 'codexawp_po_number', [
-			'type' => 'text', 'label' => 'Purchase order reference', 'required' => true,
-			'class' => [ 'po-field' ], 'placeholder' => 'e.g. ACME-1042',
-			'description' => 'Use the reference issued by your purchasing team.',
+			'type' => 'text', 'label' => __( 'Purchase order reference', 'woo-purchase-order-gateway' ), 'required' => true,
+			'class' => [ 'po-field' ], 'placeholder' => __( 'e.g. ACME-1042', 'woo-purchase-order-gateway' ),
+			'description' => __( 'Use the reference issued by your purchasing team.', 'woo-purchase-order-gateway' ),
 		] );
 		echo '</div>';
 	}
@@ -39,7 +39,7 @@ final class Gateway extends \WC_Payment_Gateway {
 		if ( approved( get_current_user_id() ) && null !== $this->submitted_reference() ) {
 			return true;
 		}
-		wc_add_notice( 'Enter a valid purchase order reference using 3–40 letters, digits, slashes or hyphens.', 'error' );
+		wc_add_notice( __( 'Enter a valid purchase order reference using 3–40 letters, digits, slashes or hyphens.', 'woo-purchase-order-gateway' ), 'error' );
 		return false;
 	}
 
@@ -63,7 +63,7 @@ final class Gateway extends \WC_Payment_Gateway {
 			return [ 'result' => 'failure' ];
 		}
 		$order->update_meta_data( REFERENCE, $value );
-		$order->update_status( 'on-hold', 'Purchase order awaiting review.' );
+		$order->update_status( 'on-hold', __( 'Purchase order awaiting review.', 'woo-purchase-order-gateway' ) );
 		if ( WC()->cart ) {
 			WC()->cart->empty_cart();
 		}

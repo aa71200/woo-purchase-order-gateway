@@ -19,16 +19,17 @@ final class Blocks extends \Automattic\WooCommerce\Blocks\Payments\Integrations\
 		wp_register_script(
 			'codexawp-po-checkout',
 			plugins_url( 'checkout.js', __FILE__ ),
-			[ 'wc-blocks-registry', 'wc-settings', 'wp-element' ],
-			'1.1.0',
+			[ 'wc-blocks-registry', 'wc-settings', 'wp-element', 'wp-i18n' ],
+			'1.1.1',
 			true
 		);
+		wp_set_script_translations( 'codexawp-po-checkout', 'woo-purchase-order-gateway' );
 		return [ 'codexawp-po-checkout' ];
 	}
 
 	public function get_payment_method_data(): array {
 		return [
-			'title' => $this->settings['title'] ?? 'Purchase Order',
+			'title' => $this->settings['title'] ?? __( 'Purchase Order', 'woo-purchase-order-gateway' ),
 			'approved' => approved( get_current_user_id() ),
 			'supports' => [ 'products' ],
 		];
