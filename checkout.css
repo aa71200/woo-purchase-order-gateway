@@ -1,20 +1,20 @@
 .codexawp-po-card {
-	--po-border: #cbd9f1;
-	--po-ink: #192b51;
+	--po-border: #d9d3e4;
+	--po-ink: #332445;
 	display: grid;
-	gap: .6rem;
-	padding: .95rem;
+	gap: .75rem;
+	padding: clamp(.85rem, 3vw, 1.15rem);
 	inline-size: min(100%, 36rem);
 	box-sizing: border-box;
 	border: 1px solid var(--po-border);
-	border-inline-start: 3px solid #3a5bd1;
-	border-radius: 8px;
-	background: #f4f7ff;
+	border-inline-start: 3px solid #765494;
+	border-radius: 11px;
+	background: #f7f4fa;
 	color: var(--po-ink);
 	text-align: start;
 }
-.codexawp-po-card .po-context { display: block; margin: 0; color: #304b92; font-size: .82rem; font-weight: 650; }
+.codexawp-po-card .po-context { display: block; margin: 0; color: #5c3978; font-size: .9rem; font-weight: 700; }
 .codexawp-po-card .po-field { display: grid; gap: .28rem; margin: 0; padding: 0; font-weight: 650; }
-.codexawp-po-card input[type="text"] { box-sizing: border-box; display: block; width: 100%; min-height: 44px; border: 1px solid #8ca0ca; background: #fff; color: var(--po-ink); border-radius: 6px; padding: .45rem .65rem; font: inherit; }
-.codexawp-po-card input[type="text"]:focus-visible { outline: 2px solid #3357c5; outline-offset: 2px; }
+.codexawp-po-card input[type="text"] { box-sizing: border-box; display: block; width: 100%; min-height: 44px; border: 1px solid #a692b8; background: #fff; color: var(--po-ink); border-radius: 8px; padding: .45rem .65rem; font: inherit; }
+.codexawp-po-card input[type="text"]:focus-visible { outline: 2px solid #684788; outline-offset: 2px; }
 .codexawp-po-card .po-help, .codexawp-po-card .description { display: block; margin: 0; color: #4c5e7d; font-size: .8rem; font-weight: 400; }
