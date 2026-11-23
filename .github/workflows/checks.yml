@@ -10,8 +10,8 @@ permissions:
 
 jobs:
   wordpress:
-    uses: aa71200/aa71200/.github/workflows/wordpress-fixture.yml@8477043a1972202732b5957cf3807a437de9b493
+    uses: aa71200/aa71200/.github/workflows/wordpress-fixture.yml@10a7928ac03ca42b987e9da56759c2fa8944fe44
     with:
-      harness_ref: 8477043a1972202732b5957cf3807a437de9b493
+      harness_ref: 10a7928ac03ca42b987e9da56759c2fa8944fe44
       browser: true
       activate: true
