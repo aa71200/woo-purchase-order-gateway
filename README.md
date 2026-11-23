@@ -1,6 +1,6 @@
 # B2B Purchase Order Gateway
 
-An original CodexaWP offline payment-method demo. Approved business accounts can enter a purchase order reference and create an on-hold WooCommerce order for merchant review.
+Approved business customers need to submit a purchase order reference at checkout and leave the order on hold for review. This CodexaWP sample implements that offline workflow with WooCommerce's gateway API.
 
 ## Checkout previews
 
