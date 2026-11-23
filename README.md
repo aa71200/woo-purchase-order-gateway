@@ -1,5 +1,7 @@
 # B2B Purchase Order Gateway
 
+[![WordPress and WooCommerce integration checks](https://github.com/aa71200/woo-purchase-order-gateway/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/aa71200/woo-purchase-order-gateway/actions/workflows/checks.yml)
+
 Approved business customers need to submit a purchase order reference at checkout and leave the order on hold for review. This CodexaWP sample implements that offline workflow with WooCommerce's gateway API.
 
 ## Checkout previews
