@@ -20,7 +20,7 @@ final class Blocks extends \Automattic\WooCommerce\Blocks\Payments\Integrations\
 			'codexawp-po-checkout',
 			plugins_url( 'checkout.js', __FILE__ ),
 			[ 'wc-blocks-registry', 'wc-settings', 'wp-element' ],
-			'1.0.0',
+			'1.1.0',
 			true
 		);
 		return [ 'codexawp-po-checkout' ];

@@ -26,9 +26,13 @@ final class Gateway extends \WC_Payment_Gateway {
 	}
 
 	public function payment_fields(): void {
+		echo '<div class="codexawp-po-card"><p class="po-context">Business billing · Merchant review</p>';
 		woocommerce_form_field( 'codexawp_po_number', [
 			'type' => 'text', 'label' => 'Purchase order reference', 'required' => true,
+			'class' => [ 'po-field' ], 'placeholder' => 'e.g. ACME-1042',
+			'description' => 'Use the reference issued by your purchasing team.',
 		] );
+		echo '</div>';
 	}
 
 	public function validate_fields(): bool {

@@ -19,8 +19,12 @@ function PurchaseOrderInput({ eventRegistration, emitResponse }) {
 		};
 	}), [reference, onPaymentSetup, emitResponse]);
 
-	return h('label', null, 'Purchase order reference',
-		h('input', { type: 'text', maxLength: 40, value: reference, onChange: event => setReference(event.target.value) })
+	return h('div', { className: 'codexawp-po-card' },
+		h('p', { className: 'po-context' }, 'Business billing · Merchant review'),
+		h('label', { className: 'po-field' }, 'Purchase order reference',
+			h('input', { type: 'text', maxLength: 40, placeholder: 'e.g. ACME-1042', 'aria-describedby': 'codexawp-po-helper', value: reference, onChange: event => setReference(event.target.value) })
+		),
+		h('p', { id: 'codexawp-po-helper', className: 'po-help' }, 'Use the reference issued by your purchasing team.')
 	);
 }
 

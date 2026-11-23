@@ -16,6 +16,12 @@ const ID = 'codexawp_purchase_order';
 const APPROVAL = '_codexawp_po_approved';
 const REFERENCE = '_codexawp_po_reference';
 
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( function_exists( 'is_checkout' ) && is_checkout() ) {
+		wp_enqueue_style( 'codexawp-po-checkout', plugins_url( 'checkout.css', __FILE__ ), [], '1.1.0' );
+	}
+} );
+
 function approved( int $user_id ): bool {
 	return $user_id > 0 && 'yes' === get_user_meta( $user_id, APPROVAL, true );
 }

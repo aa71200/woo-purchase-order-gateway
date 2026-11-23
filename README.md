@@ -2,6 +2,8 @@
 
 An original CodexaWP offline payment-method demo. Approved business accounts can enter a purchase order reference and create an on-hold WooCommerce order for merchant review.
 
+![Purchase order reference with merchant-review guidance in block checkout](docs/checkout-block.png)
+
 ## Try it
 
 Enable **Purchase Order** under WooCommerce payment settings. For a test customer, set the user meta key `_codexawp_po_approved` to `yes` using your test site's management tools. The reference accepts 3–40 letters, digits, hyphens or slashes. Test both the Classic Checkout shortcode and the Checkout block.
